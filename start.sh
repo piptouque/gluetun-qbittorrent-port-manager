@@ -2,6 +2,13 @@
 
 COOKIES="/tmp/cookies.txt"
 
+if [[ ! -z "$QBITTORRENT_USER_FILE" ]]; then
+  QBITTORRENT_USER=$(< $QBITTORRENT_USER_FILE)
+fi
+if [[ ! -z "$QBITTORRENT_PASS_FILE" ]]; then
+  QBITTORRENT_PASS=$(< $QBITTORRENT_PASS_FILE)
+fi
+
 update_port () {
   PORT=$(cat $PORT_FORWARDED)
   rm -f $COOKIES
